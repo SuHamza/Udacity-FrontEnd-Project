@@ -5,16 +5,11 @@ $('#colorPicker').on("change", function(){
   color = $(this).val();
   console.log("Color changed to: "+ color);
 });
-// // Select size input
-// $('#input_height').change(function(){
-//
-// });
-// $('#input_width').change(function(){
-//   width = $(this).val();
-// });
+
+
 // When size is submitted by the user, call makeGrid()
-// $("input[type='submit']").on
 $('#sizePicker').submit(function(e){
+  // Select size input
   height = $('#input_height').val();
   width = $('#input_width').val();
   makeGrid();
@@ -22,10 +17,11 @@ $('#sizePicker').submit(function(e){
   e.preventDefault();
 });
 function makeGrid() {
-// Your code goes here!
+// First emty grid, if any
 $('#pixel_canvas').empty();
 var row = 1;
 var rowString = "";
+//Draw grid with given height and width
   while (row <= height) {
     rowString += "<tr>";
     for (var i = 1; i <= width; i++) {
@@ -34,10 +30,9 @@ var rowString = "";
     rowString += "</tr>";
     row ++;
   }
-  console.log(rowString);
   $('#pixel_canvas').append(rowString);
 }
-
+//Color clicked cells
 $('#pixel_canvas').on('click','td', function(){
   $(this).css("background-color", color);
 });
